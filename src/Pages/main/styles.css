@@ -1,10 +1,10 @@
-.product-list {
+.match-list {
   max-width: 700px;
   margin: 20px auto 0;
   padding: 0 20px;
 }
 
-.product-list article {
+.match-list article {
   background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -12,14 +12,14 @@
   margin-bottom: 20px;
 }
 
-.product-list article p {
+.match-list article p {
   font-size: 16px;
   color: #999999;
   margin-top: 5px;
   line-height: 24px;
 }
 
-.product-list article a {
+.match-list article a {
   height: 42px;
   border-radius: 5px;
   border: 2px solid #da552f;
@@ -35,17 +35,17 @@
   transition: all 0.2s;
 }
 
-.product-list article a:hover {
+.match-list article a:hover {
   background: #da552f;
   color: #fff;
 }
 
-.product-list .actions {
+.match-list .actions {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-.product-list .actions button {
+.match-list .actions button {
   padding: 10px;
   border-radius: 5px;
   border: 0;
@@ -56,11 +56,47 @@
   cursor: pointer;
 }
 
-.product-list .actions button:hover {
+.match-list .actions button:hover {
   opacity: 0.7;
 }
 
-.product-list .actions button[disabled] {
+.match-list .actions button[disabled] {
   opacity: 0.5;
   cursor: default;
+}
+.match-list .match-info .match-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.match-list .match-info .match-name h2 {
+  font-size: 25px;
+  margin-right: 5px;
+  color: #999999;
+}
+
+.match-list .match-info .match-name h3 {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #999999;
+}
+.match-list .match-info .opponents {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 0;
+}
+.match-list .match-info .odd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.match-list .match-info .even {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }

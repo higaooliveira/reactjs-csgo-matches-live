@@ -1,0 +1,22 @@
+.opponent {
+  text-align: center;
+  width: 100%;
+}
+
+.odd .opponent .score {
+  height: 43px;
+  width: 20%;
+  position: relative;
+  bottom: 15px;
+  left: 70%;
+  font-size: 25px;
+}
+
+.even .opponent .score {
+  height: 43px;
+  width: 20%;
+  position: relative;
+  bottom: 15px;
+  left: 15%;
+  font-size: 25px;
+}
