@@ -100,3 +100,17 @@
   align-items: center;
   width: 50%;
 }
+
+.match-list .match-info .match-hour {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #999999;
+}
+
+.match-list .match-info .versus {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 10px;
+}

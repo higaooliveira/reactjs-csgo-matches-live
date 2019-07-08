@@ -1,7 +1,11 @@
-import React, { Component } from "react";
-import "./opponents.css";
+import React, { Component } from "react"
+import "./opponents.css"
 export default class Opponent extends Component {
   render() {
+    const teamResult = this.props.results.filter(
+      result => result.team_id === this.props.team.id,
+    )
+
     return (
       <div className="opponent" key={this.props.team.id}>
         <div className="image">
@@ -9,9 +13,9 @@ export default class Opponent extends Component {
         </div>
         <strong> {this.props.team.name}</strong>
         <div className="score">
-          <strong>2(15)</strong>
+          {teamResult[0].score && <strong>teamResult[0].score</strong>}
         </div>
       </div>
-    );
+    )
   }
 }

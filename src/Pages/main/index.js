@@ -1,84 +1,67 @@
-import React, { Component } from "react";
-import api, { token } from "../../Services/api";
+import React, { Component } from "react"
+import api, { token } from "../../Services/api"
 
-import Opponents from "../../Components/Opponent";
-import "./styles.css";
+import Match from "../../Components/Match"
 
 export default class Main extends Component {
   state = {
     matches: [],
-    perPage: 5,
     page: 1,
-    sort: "begin_at"
-  };
+    sort: "begin_at",
+  }
 
   componentDidMount() {
-    this.loadMatches();
+    this.loadMatches()
   }
 
   loadMatches = async (page = 1) => {
-    const { perPage, sort } = this.state;
-    const response = await api.get(
-      `/csgo/matches/running?page=${page}&sort=${sort}&per_page=${perPage}&token=${token}`
-    );
-    const matches = response.data;
-    this.setState({ matches });
-  };
+    const { sort } = this.state
+    const apiCall = [
+      `/csgo/matches/running?page=${page}&sort=${sort}&token=${token}`,
+      `/csgo/matches/upcoming?page=${page}&sort=${sort}&token=${token}`,
+    ]
+    let response = await api.get(apiCall[0])
+    if (response.data.length === 0) {
+      response = await api.get(apiCall[1])
+    }
+    const matches = response.data
+    this.setState({ matches })
+  }
 
   prevPage = () => {
-    const { page } = this.state;
+    const { page } = this.state
 
-    if (page === 1) return;
+    if (page === 1) return
 
-    const pageNumber = page - 1;
+    const pageNumber = page - 1
 
-    this.loadMatches(pageNumber);
-  };
+    this.loadMatches(pageNumber)
+  }
 
   nextPage = () => {
-    const { page, productInfo } = this.state;
+    const { page } = this.state
 
-    if (page === productInfo.pages) return;
+    const pageNumber = page + 1
 
-    const pageNumber = page + 1;
-
-    this.loadMatches(pageNumber);
-  };
+    this.loadMatches(pageNumber)
+  }
 
   render() {
-    const { matches } = this.state;
-    console.log(matches);
+    const { matches, page } = this.state
+    let games = matches.filter(match => match.opponents.length > 0)
     return (
       <div className="match-list">
-        {matches.map(match => (
-          <article key={match.id} className="match-info">
-            <div className="match-name">
-              <h3>
-                {match.league.name} {match.serie.full_name} -{" "}
-              </h3>
-              <h3> {match.name}</h3>
-            </div>
-            <div className="opponents">
-              <div className="odd">
-                <Opponents team={match.opponents[0].opponent} />
-              </div>
-              <strong>X</strong>
-              <div className="even">
-                <Opponents team={match.opponents[1].opponent} />
-              </div>
-            </div>
-          </article>
+        {games.map(match => (
+          <Match key={match.id} match={match} />
         ))}
 
         <div className="actions">
-          {/* <button disabled={page === 1} onClick={this.prevPage}>
+          <button disabled={page === 1} onClick={this.prevPage}>
             Anterior
           </button>
-          <button disabled={page === productInfo.pages} onClick={this.nextPage}>
-            Proxima
-          </button> */}
+          <button onClick={this.nextPage}>Proxima</button>
         </div>
       </div>
-    );
+    )
   }
 }

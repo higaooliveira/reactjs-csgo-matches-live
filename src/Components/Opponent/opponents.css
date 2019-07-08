@@ -3,20 +3,27 @@
   width: 100%;
 }
 
+.opponent strong {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .odd .opponent .score {
   height: 43px;
   width: 20%;
   position: relative;
-  bottom: 15px;
-  left: 70%;
-  font-size: 25px;
+  bottom: 35px;
+  left: 230px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .even .opponent .score {
   height: 43px;
   width: 20%;
   position: relative;
-  bottom: 15px;
-  left: 15%;
-  font-size: 25px;
+  bottom: 35px;
+  left: 10px;
+  font-size: 30px;
+  font-weight: bold;
 }
