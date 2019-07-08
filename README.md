@@ -3,4 +3,8 @@ Application in react js that displays games of Cs GO
 
 
 # SETUP
-Clone that repo in your computer, access your folder via terminal and run ```npm install```, after process finishes, run ```npm run start```
+Clone that repo in your computer, access your folder via terminal and run command:
+```npm install```
+
+After process finishes, run command:
+```npm run start```
